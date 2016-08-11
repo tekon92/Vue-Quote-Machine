@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Quotes</title>
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <!-- <link rel="stylesheet" href="css/animate.css"> -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="node_modules/vue-animate/dist/vue-animate.css">
+  </head>
+  <body id="my_view">
+    <div class="container">
+      <!-- <div v-show="ok" class="animated" transition="bounce"> -->
+      <div class="animated">
+        <h1>{{ origin.quote }}</h1>
+        <div class="stripe"></div>
+        <h2>{{ origin.author }}</h2>
+      </div>
+      <div class="buttons">
+        <p>
+          <button class="btn btn-default" aria-label="Settings" v-on:click="tweetThis()">
+            <i class="fa fa-twitter" aria-hidden="true"></i>
+          </button>
+
+
+          <button type="button" name="button" class="btn btn-default" v-on:click="reloadPage()">
+            <i class="fa fa-play" aria-hidden="true"></i>
+          </button>
+        </p>
+      </div>
+    </div>
+    <script src="bower_components/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/vue.resource/0.9.3/vue-resource.min.js"></script>
+    <script type="text/javascript">
+    var apiUrl = 'https://andruxnet-random-famous-quotes.p.mashape.com/?cat=movies';
+    var tweetLink = 'https://twitter.com/intent/tweet?text=';
+    // Vue.transition('bounce', {
+    //   enterClass: 'bounceInLeft',
+    //   leaveClass: 'bounceOutRight',
+    //   props: {
+    //     show: {
+    //       type: Boolean,
+    //       required: true,
+    //       twoWay: true
+    //     }
+    //   // }
+    //     })
+      new Vue({
+        http: {
+          headers: {
+            "x-mashape-key": "urMJLMSzwemshlYUOQYeZrOmwMRdp1YGCvnjsnCSCkQ5c8Sg6y",
+            "content-type": "application/x-www-form-urlencoded",
+            "accept": "application/json",
+            "cache-control": "no-cache"
+          },
+        },
+        el: '#my_view',
+        data: {
+           origin: ''
+        },
+
+        ready: function() {
+
+            this.getQuote()
+
+          },
+        methods: {
+          reloadPage: function () {
+            this.getQuote()
+          },
+          getQuote: function () {
+            this.$http.get(apiUrl).then((response) => {
+              this.$set('origin', response.json())
+            }, (response) => {
+              // if api not working
+            })
+          },
+          tweetThis: function () {
+            var myUrl = tweetLink + this.origin.quote + ' ' + this.origin.author;
+            window.open(myUrl, 'twitter');
+            return false;
+          }
+        },
+
+      });
+    </script>
+  </body>
+</html>

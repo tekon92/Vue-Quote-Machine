@@ -1,0 +1,67 @@
+{
+  "name": "vue-animate",
+  "version": "0.0.4",
+  "description": "LESS cross-browser animation library, for use with Vue.js. Ported from Animate.css.",
+  "author": {
+    "name": "Hayden Bickerton",
+    "email": "haydenbbickerton@gmail.com"
+  },
+  "homepage": "https://github.com/haydenbbickerton/vue-animate",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haydenbbickerton/vue-animate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/haydenbbickerton/vue-animate/issues"
+  },
+  "keywords": [
+    "less",
+    "animate",
+    "animate.css",
+    "vue",
+    "vue.js",
+    "transition",
+    "vue-animate",
+    "css"
+  ],
+  "files": [
+    "dist/vue-animate.css",
+    "dist/vue-animate.min.css",
+    "src"
+  ],
+  "devDependencies": {
+    "less": "^2.4.0",
+    "less-plugin-autoprefix": "^1.5.1",
+    "less-plugin-clean-css": "^1.5.0"
+  },
+  "scripts": {
+    "build": "lessc --autoprefix='> 5%' src/vue-animate.less > dist/vue-animate.css && lessc --autoprefix='> 5%' --clean-css='--compatibility=ie8 --advanced' src/vue-animate.less > dist/vue-animate.min.css"
+  },
+  "gitHead": "a28a9c921f4fb2a1d5b264613d9847296cdb687f",
+  "_id": "vue-animate@0.0.4",
+  "_shasum": "bf7afcdfec4694e4d19147a75f6761ecf3735f8f",
+  "_from": "vue-animate@latest",
+  "_npmVersion": "3.6.0",
+  "_nodeVersion": "5.6.0",
+  "_npmUser": {
+    "name": "haydenbbickerton",
+    "email": "haydenbbickerton@gmail.com"
+  },
+  "dist": {
+    "shasum": "bf7afcdfec4694e4d19147a75f6761ecf3735f8f",
+    "tarball": "https://registry.npmjs.org/vue-animate/-/vue-animate-0.0.4.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "haydenbbickerton",
+      "email": "haydenbbickerton@gmail.com"
+    }
+  ],
+  "_npmOperationalInternal": {
+    "host": "packages-16-east.internal.npmjs.com",
+    "tmp": "tmp/vue-animate-0.0.4.tgz_1460225452119_0.5490441627334803"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/vue-animate/-/vue-animate-0.0.4.tgz"
+}
